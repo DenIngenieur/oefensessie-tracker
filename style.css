@@ -1,0 +1,299 @@
+/* Algemene reset en basisstijlen */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef; /* Een lichtere achtergrondkleur */
+    color: #343a40;
+    line-height: 1.6;
+    display: flex; /* Zorg dat de body zelf een flex-container is om de page-wrapper te centreren */
+    justify-content: center; /* Centreer de page-wrapper horizontaal */
+    min-height: 100vh; /* Zorg dat de body minstens de volledige viewport-hoogte inneemt */
+}
+
+/* De hoofd-wrapper voor de GRID lay-out */
+.page-wrapper {
+    display: grid;
+    /* Drie kolommen: 150px 1fr 150px */
+    grid-template-columns: 180px 1fr 180px;
+    gap: 30px; /* Ruimte tussen de kolommen */
+    width: 100%;
+    max-width: 1600px; /* AANGEPAST: Verhogen om app breder te maken op grote schermen */
+    padding: 20px; /* Padding aan de zijkanten en boven/onder van de wrapper */
+    box-sizing: border-box;
+}
+
+/* Stijlen voor de zijbalken (banners) */
+.sidebar {
+  position: sticky;
+  top: 10px;
+    background-color: #f8f9fa; /* Lichtgrijze achtergrond */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #555;
+    font-size: 0.9em;
+    align-self: start; /* Zorgt dat de sidebar bovenaan de grid-cel blijft plakken */
+    box-sizing: border-box; /* Belangrijk voor padding/borders */
+
+    /* Debug kleuren terug! */
+    background-color: lightcoral; /* Linker sidebar */
+}
+.right-sidebar {
+    background-color: lightgreen; /* Rechter sidebar */
+}
+
+.sidebar-content {
+    width: 100%; /* Zorgt dat de inhoud de volle breedte van de sidebar pakt */
+}
+
+.sidebar h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #0056b3;
+}
+
+/* Naam van de class is .info-box */
+.info-box {
+    background-color: #e2e6ea; /* Dit is het "grijze veld" */
+    border: 1px dashed #adb5bd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.info-box p {
+    margin: 5px 0;
+    font-style: italic;
+    color: #6c757d;
+}
+
+
+/* Media Query: verberg zijbalken op kleinere schermen */
+@media (max-width: 1000px) {
+    .page-wrapper {
+        grid-template-columns: 1fr; /* Slechts één kolom voor de hoofdinhoud */
+        padding: 15px; /* Minder padding voor kleine schermen */
+        gap: 0; /* Geen gap meer als er maar 1 kolom is */
+    }
+    .sidebar {
+        display: none; /* Verberg de zijbalken volledig */
+    }
+}
+
+
+/* Hoofdinoud applicatie container */
+.app-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    /* Kader rond de applicatie */
+    border: 2px solid #007bff; /* Een duidelijke blauwe border */
+
+    /* Debug kleur terug! */
+    background-color: lightblue;
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.card {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: calc(100% - 22px);
+    padding: 11px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.danger-button {
+    background-color: #dc3545;
+    margin-left: 15px;
+}
+
+.danger-button:hover {
+    background-color: #c82333;
+}
+
+.select-series-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#activeSeries {
+    flex-grow: 1;
+    min-width: 180px;
+}
+
+.series-stats {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #e9f5ff;
+    border: 1px solid #cce5ff;
+    border-radius: 8px;
+    color: #004085;
+    font-size: 0.95em;
+}
+
+.series-stats h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.series-stats p {
+    margin: 8px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    font-size: 0.95em;
+}
+
+table th, table td {
+    border: 1px solid #dee2e6;
+    padding: 14px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fefefe;
+}
+
+table tbody tr:hover {
+    background-color: #eaf6ff;
+}
+
+/* Status kleuren */
+.status-goed { background-color: #d4edda; color: #155724; }
+.status-fout { background-color: #f8d7da; color: #721c24; }
+.status-blanco { background-color: #fff3cd; color: #856404; }
+.status-nog-niet-gezien { background-color: #e2e3e5; color: #495057; }
+
+
+/* Specifieke styling voor delete buttons in table */
+#resultsTable .delete-row-btn {
+    background-color: #dc3545;
+    padding: 6px 12px;
+    font-size: 0.8em;
+    border-radius: 4px;
+}
+#resultsTable .delete-row-btn:hover {
+    background-color: #c82333;
+}

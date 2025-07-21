@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oefensessie Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <aside class="sidebar left-sidebar">
+            <div class="sidebar-content">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/@DenIngenieur" target="_blank">Den Ingenieur @ YouTube</a></li>
+                    <li><a href="https://www.deningenieur.be/" target="_blank">Den Ingenieur</a></li>
+                    <li><a href="https://github.com/DenIngenieur/" target="_blank">Den Ingenieur @ GitHub</a></li>
+                    <li><a href="https://www.deningenieur.be/contact" target="_blank">Contact</a></li>
+                </ul>
+                <div class="info-box">
+                    <p>INFO</p>
+                    <p>Jouw info hier?</p>
+                    <p>Schrijf me een berichtje via de link hierboven.</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="app-container">
+            <h1>📚 Oefensessie Tracker</h1>
+
+            <section class="card">
+                <h2>1. Vragenreeks Beheer</h2>
+                <form id="seriesForm">
+                    <div class="form-group">
+                        <label for="seriesName">Naam Vragenreeks:</label>
+                        <input type="text" id="seriesName" placeholder="Bijv. Juli 2025" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalQuestions">Totaal aantal vragen:</label>
+                        <input type="number" id="totalQuestions" min="1" required>
+                    </div>
+                    <button type="submit">Vragenreeks Toevoegen</button>
+                </form>
+
+                <div class="select-series-container">
+                    <label for="activeSeries">Selecteer actieve reeks:</label>
+                    <select id="activeSeries">
+                        <option value="">-- Kies een reeks --</option>
+                    </select>
+                    <button id="deleteSeriesBtn" class="danger-button">Verwijder Reeks</button>
+                </div>
+                <div id="seriesStats" class="series-stats">
+                    </div>
+            </section>
+
+            <section class="card" id="questionEntrySection" style="display: none;">
+                <h2>2. Vraagresultaat Toevoegen <span id="currentSeriesDisplay"></span></h2>
+                <form id="questionForm">
+                    <div class="form-group">
+                        <label for="questionDate">Datum oefensessie:</label>
+                        <input type="date" id="questionDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="questionId">Vraag-ID:</label>
+                        <input type="text" id="questionId" placeholder="Bijv. Vraag 1, 2024-Q12" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status" required>
+                            <option value="Goed">Goed</option>
+                            <option value="Fout">Fout</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Nog niet gezien">Nog niet gezien</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Tijd (min):</label>
+                        <input type="number" id="time" min="1" max="30">
+                    </div>
+                    <button type="submit">Resultaat Toevoegen</button>
+                </form>
+            </section>
+
+            <section class="card" id="questionResultsSection" style="display: none;">
+                <h2>3. Gedetailleerde Resultaten</h2>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Vraag-ID</th>
+                            <th>Status</th>
+                            <th>Tijd (min)</th>
+                            <th>Herhaling (3 dagen later)</th>
+                            <th>Acties</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </section>
+        </main>
+
+        <aside class="sidebar right-sidebar">
+            <div class="sidebar-content">
+                <h3>Tips & tricks</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=8hUO8uKz3Ec" target="_blank">kwadratische veeltermen</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Rfps2C_OBE8" target="_blank">voorbereiding toelatingsexamen</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=EjvHc0P5Cyo" target="_blank">goniometrische getallen</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=91nzPBXDbok" target="_blank">kettingregel</a></li>
+                </ul>
+                <div class="info-box">
+                    <p>INFO</p>
+                    <p>Jouw info hier?</p>
+                    <p>Schrijf me een berichtje via de linkse link.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
