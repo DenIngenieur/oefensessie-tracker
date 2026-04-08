@@ -10,6 +10,15 @@
     <div class="page-wrapper">
         <aside class="sidebar left-sidebar">
             <div class="sidebar-content">
+                <!-- Nieuwe knoppen -->
+                <div class="import-export-buttons">
+                    <button id="exportBtn" class="sidebar-btn">Exporteer</button>
+                    <button id="importBtn" class="sidebar-btn">Importeer</button>
+                    <button id="helpBtn" class="sidebar-btn">❓ Hoe gebruiken?</button>
+                    <input type="file" id="importFileInput" accept=".json" style="display: none;">
+                </div>
+
+                <!-- Originele links (onaangetast) -->
                 <h3>Links</h3>
                 <ul>
                     <li><a href="https://www.youtube.com/@DenIngenieur" target="_blank">Den Ingenieur @ YouTube</a></li>
@@ -17,11 +26,15 @@
                     <li><a href="https://github.com/DenIngenieur/" target="_blank">Den Ingenieur @ GitHub</a></li>
                     <li><a href="https://www.deningenieur.be/mijngedacht/contact" target="_blank">Contact</a></li>
                 </ul>
-                <div class="info-box">
-                    <p>INFO</p>
-                    <p>Jouw info hier?</p>
-                    <p>Schrijf me een berichtje via de link hierboven.</p>
-                </div>
+
+                <!-- Tips & tricks (was rechterzijbalk) -->
+                <h3>Tips & tricks</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=8hUO8uKz3Ec" target="_blank">kwadratische veeltermen</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Rfps2C_OBE8" target="_blank">voorbereiding toelatingsexamen</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=EjvHc0P5Cyo" target="_blank">goniometrische getallen</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=91nzPBXDbok" target="_blank">kettingregel</a></li>
+                </ul>
             </div>
         </aside>
 
@@ -49,8 +62,7 @@
                     </select>
                     <button id="deleteSeriesBtn" class="danger-button">Verwijder Reeks</button>
                 </div>
-                <div id="seriesStats" class="series-stats">
-                    </div>
+                <div id="seriesStats" class="series-stats"></div>
             </section>
 
             <section class="card" id="questionEntrySection" style="display: none;">
@@ -75,7 +87,7 @@
                     </div>
                     <div class="form-group">
                         <label for="time">Tijd (min):</label>
-                        <input type="number" id="time" min="1" max="30">
+                        <input type="number" id="time" min="1">
                     </div>
                     <button type="submit">Resultaat Toevoegen</button>
                 </form>
@@ -94,29 +106,42 @@
                             <th>Acties</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        </tbody>
+                    <tbody></tbody>
                 </table>
             </section>
         </main>
-
-        <aside class="sidebar right-sidebar">
-            <div class="sidebar-content">
-                <h3>Tips & tricks</h3>
-                <ul>
-                    <li><a href="https://www.youtube.com/watch?v=8hUO8uKz3Ec" target="_blank">kwadratische veeltermen</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=Rfps2C_OBE8" target="_blank">voorbereiding toelatingsexamen</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=EjvHc0P5Cyo" target="_blank">goniometrische getallen</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=91nzPBXDbok" target="_blank">kettingregel</a></li>
-                </ul>
-                <div class="info-box">
-                    <p>INFO</p>
-                    <p>Jouw info hier?</p>
-                    <p>Schrijf me een berichtje via de linkse link.</p>
-                </div>
-            </div>
-        </aside>
     </div>
+
+    <!-- HTML5 dialog voor handleiding -->
+    <dialog id="helpDialog">
+        <h2>📖 Handleiding – Oefensessie Tracker</h2>
+        <div class="manual-text">
+            <h3>1. Vragenreeksen aanmaken</h3>
+            <p>Geef een naam (bijv. "Juli 2025") en het totaal aantal vragen van de reeks. Klik op <strong>Vragenreeks Toevoegen</strong>.</p>
+            
+            <h3>2. Actieve reeks selecteren</h3>
+            <p>Kies een reeks uit de dropdown. De statistieken en invoerformulieren worden automatisch geladen.</p>
+            
+            <h3>3. Vraagresultaten invoeren</h3>
+            <p>Vul de datum (wordt onthouden), een uniek Vraag-ID (bv. "Vraag 12"), de status (Goed/Fout/Blanco/Nog niet gezien) en de tijd in minuten (optioneel). Klik op <strong>Resultaat Toevoegen</strong>.</p>
+            <p>Bij status <em>Fout, Blanco of Nog niet gezien</em> wordt automatisch een herhalingsdatum (3 dagen later) berekend.</p>
+            
+            <h3>4. Resultaten bekijken en verwijderen</h3>
+            <p>De tabel toont alle ingevoerde vragen. Je kunt een rij verwijderen met de knop <strong>Verwijder</strong>.</p>
+            
+            <h3>5. Statistieken</h3>
+            <p>Bekijk je voortgang: aantal ingevoerde vragen, percentages goed/fout, gemiddelde tijd, nog te doen, etc.</p>
+            
+            <h3>6. Exporteren / Importeren</h3>
+            <p>Gebruik de knoppen in de zijbalk om een back-up te maken van al je gegevens (JSON-bestand) of een eerdere back-up terug te zetten. <strong>Opgelet:</strong> importeren overschrijft alle bestaande data!</p>
+            
+            <h3>7. Tips & tricks</h3>
+            <p>In de zijbalk staan handige links naar uitlegvideo's van Den Ingenieur.</p>
+            
+            <p><em>Veel succes met je voorbereiding!</em> 🚀</p>
+        </div>
+        <button id="closeHelpBtn" class="close-dialog">Sluiten</button>
+    </dialog>
 
     <script src="app.js"></script>
 </body>
