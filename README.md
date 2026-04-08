@@ -17,7 +17,7 @@ Ontworpen voor studenten die zich voorbereiden op toelatingsexamens (bv. ingenie
 Kloon de repository en open `index.html` in een moderne browser (Chrome, Firefox, Edge, Safari).  
 De app werkt volledig in de browser via **IndexedDB** – er is geen backend of internetverbinding nodig (behalve voor de links naar YouTube).
 
-## 📖 Handleiding (Nederlands)
+## 📖 Handleiding
 
 ### 1. Vragenreeksen aanmaken
 - Vul een naam in (bijv. “Juli 2025”) en het totaal aantal vragen van die reeks.
