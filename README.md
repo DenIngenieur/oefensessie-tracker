@@ -53,8 +53,7 @@ Het statistiekenblok toont:
 - **Exporteer gegevens** – Maakt een JSON‑bestand van al je series en vragen. Je kunt een bestandsnaam kiezen.
 - **Importeer gegevens** – Laad een eerder geëxporteerd bestand. **Waarschuwing:** dit overschrijft alle bestaande data! Bevestig daarom zorgvuldig.
 
-### 7. Tips & tricks
-In de linkerzijbalk staan handige links naar uitlegvideo’s van **Den Ingenieur** (kwadratische veeltermen, voorbereiding toelatingsexamen, goniometrie, kettingregel).
+Je kunt dit bestand eventueel op een shared drive of in de wolk zetten, zodat je het kunt delen met je andere toestellen. Zo krijg je hetzelfde op je pc en je tablet, bijvoorbeeld. 
 
 ## 🛠️ Technische details
 
