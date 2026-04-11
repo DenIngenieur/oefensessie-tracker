@@ -3,6 +3,8 @@
 Een eenvoudige webapplicatie om je voortgang bij het oefenen van examenvragen bij te houden.  
 Ontworpen voor studenten die zich voorbereiden op toelatingsexamens (bv. ingenieurswetenschappen) met ondersteuning voor **vragenreeksen**, **statusregistratie** (Goed / Fout / Blanco / Nog niet gezien), **automatische herhalingsdata** en **import/export** van je gegevens.
 
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 ## ✨ Functionaliteiten
 
 - **Vragenreeksen aanmaken** – Geef elke reeks een naam en het totaal aantal vragen.
