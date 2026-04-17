@@ -1,0 +1,142 @@
+<!-- index.html (English version) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Session Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <aside class="sidebar left-sidebar">
+            <div class="sidebar-content">
+                <!-- New buttons -->
+                <div class="import-export-buttons">
+                    <button id="exportBtn" class="sidebar-btn">Export</button>
+                    <button id="importBtn" class="sidebar-btn">Import</button>
+                    <button id="helpBtn" class="sidebar-btn">❓ How to use?</button>
+                    <input type="file" id="importFileInput" accept=".json" style="display: none;">
+                </div>
+
+                <!-- Original links -->
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="https://github.com/DenIngenieur/oefensessie-tracker" target="_blank">Code of this thing on github</a></li>
+                    <li><a href="https://www.youtube.com/@DenIngenieur" target="_blank">Den Ingenieur @ YouTube</a></li>
+                    <li><a href="https://www.deningenieur.be/" target="_blank">Den Ingenieur</a></li>
+                    <li><a href="https://github.com/DenIngenieur/" target="_blank">Den Ingenieur @ GitHub</a></li>
+                    <li><a href="https://www.deningenieur.be/mijngedacht/contact" target="_blank">Contact</a></li>
+                </ul>
+
+                <!-- Official -->
+                <h3>Official</h3>
+                <a href="https://justtheengineer.eu/" target="_blank">Just The Engineer</a>
+            </div>
+        </aside>
+
+        <main class="app-container">
+            <h1>📚 Practice Session Tracker</h1>
+
+            <section class="card">
+                <h2>1. Question Series Management</h2>
+                <form id="seriesForm">
+                    <div class="form-group">
+                        <label for="seriesName">Series Name:</label>
+                        <input type="text" id="seriesName" placeholder="e.g., July 2025" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalQuestions">Total number of questions:</label>
+                        <input type="number" id="totalQuestions" min="1" required>
+                    </div>
+                    <button type="submit">Add Question Series</button>
+                </form>
+
+                <div class="select-series-container">
+                    <label for="activeSeries">Select active series:</label>
+                    <select id="activeSeries">
+                        <option value="">-- Choose a series --</option>
+                    </select>
+                    <button id="deleteSeriesBtn" class="danger-button">Delete Series</button>
+                </div>
+                <div id="seriesStats" class="series-stats"></div>
+            </section>
+
+            <section class="card" id="questionEntrySection" style="display: none;">
+                <h2>2. Add Question Result <span id="currentSeriesDisplay"></span></h2>
+                <form id="questionForm">
+                    <div class="form-group">
+                        <label for="questionDate">Session Date:</label>
+                        <input type="date" id="questionDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="questionId">Question ID:</label>
+                        <input type="text" id="questionId" placeholder="e.g., Question 1, 2024-Q12" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status" required>
+                            <option value="Good">Good</option>
+                            <option value="Wrong">Wrong</option>
+                            <option value="Blank">Blank</option>
+                            <option value="Not seen yet">Not seen yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time (min):</label>
+                        <input type="number" id="time" min="1">
+                    </div>
+                    <button type="submit">Add Result</button>
+                </form>
+            </section>
+
+            <section class="card" id="questionResultsSection" style="display: none;">
+                <h2>3. Detailed Results</h2>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Question ID</th>
+                            <th>Status</th>
+                            <th>Time (min)</th>
+                            <th>Repeat (3 days later)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- HTML5 dialog for manual -->
+    <dialog id="helpDialog">
+        <h2>📖 User Guide – Practice Session Tracker</h2>
+        <div class="manual-text">
+            <h3>1. Create Question Series</h3>
+            <p>Enter a name (e.g., "July 2025") and the total number of questions in the series. Click <strong>Add Question Series</strong>.</p>
+            
+            <h3>2. Select Active Series</h3>
+            <p>Choose a series from the dropdown. Statistics and input forms will load automatically.</p>
+            
+            <h3>3. Add Question Results</h3>
+            <p>Fill in the date (remembered), a unique Question ID (e.g., "Question 12"), the status (Good/Wrong/Blank/Not seen yet), and the time in minutes (optional). Click <strong>Add Result</strong>.</p>
+            <p>For status <em>Wrong, Blank, or Not seen yet</em>, a repeat date (3 days later) is automatically calculated.</p>
+            
+            <h3>4. View and Delete Results</h3>
+            <p>The table shows all entered questions. You can delete a row using the <strong>Delete</strong> button.</p>
+            
+            <h3>5. Statistics</h3>
+            <p>Track your progress: number of entered questions, percentages correct/wrong, average time, remaining, etc.</p>
+            
+            <h3>6. Export / Import</h3>
+            <p>Use the buttons in the sidebar to back up all your data (JSON file) or restore a previous backup. <strong>Caution:</strong> Importing overwrites all existing data!</p>
+            
+            <p><em>Good luck with your preparation!</em> 🚀</p>
+        </div>
+        <button id="closeHelpBtn" class="close-dialog">Close</button>
+    </dialog>
+
+    <script src="app.en.js"></script>
+</body>
+</html>
